@@ -23,7 +23,7 @@ namespace SmartLamp {
     }
     //% block
     export function setEffect(effect: LampEffect) {
-
+        currenteffect = effect
     }
     //% block 
     export function initialise() {

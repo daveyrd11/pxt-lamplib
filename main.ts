@@ -21,7 +21,16 @@ namespace SmartLamp {
     }
     //% block
     export function testlamp() {
-
+        strip.clear()
+        strip.setPixelColor(0, NeoPixelColors.Blue)
+        strip.show()
+        for (let index = 0; index <= 11; index++) {
+            basic.pause(100)
+            strip.rotate(1)
+            strip.show()            
+        }
+        strip.clear()
+        strip.show()
         basic.showString("lamptest")
     }
     //% block

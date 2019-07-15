@@ -1,14 +1,16 @@
+
+enum LampEffect {
+    //% block="Static"
+    Static,
+    //% block="Rotate"
+    Rotate,
+    //% block="Random"
+    Random,
+    //% block="Fade"
+    Fade,
+}
 namespace SmartLamp {
-    enum LampEffect {
-        //% block="Static"
-        Static,
-        //% block="Rotate"
-        Rotate,
-        //% block="Random"
-        Random,
-        //% block="Fade"
-        Fade,
-    }
+    
     //% block
     export function setEffect(effect: LampEffect) {
         

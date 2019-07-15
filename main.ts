@@ -11,15 +11,16 @@ enum LampEffect {
     //% block="Fade"
     Fade,
 }
+
 namespace SmartLamp {
 
-    basic.forever(function () {
-        basic.pause(100)
-        if (currenteffect == LampEffect.RotateCW){
+    //% block
+    export function update(){
+        if (currenteffect==LampEffect.RotateCW){
             strip.rotate(1)
-            strip.show()
         }
-    })
+        strip.show()
+    }
     //% block
     export function setEffect(effect: LampEffect) {
 

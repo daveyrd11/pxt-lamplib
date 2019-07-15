@@ -19,16 +19,21 @@ enum RepeatMode {
     repeatInLoop
 }
 
+
 //% color=190 weight=100 icon="\uf192" block="Smart Lamp"
+
 namespace SmartLamp {
     //% block
-    export function setTimer(time: number,effect: LampEffect,mode: RepeatMode){
+    export function setTimer(time: number, effect: LampEffect, mode: RepeatMode) {
 
     }
     //% block
-    export function update(){
-        if (currenteffect==LampEffect.RotateCW){
+    export function update() {
+        if (currenteffect == LampEffect.RotateCW) {
             strip.rotate(1)
+        }
+        if (currenteffect == LampEffect.RotateACW) {
+            strip.rotate(-1)
         }
         strip.show()
     }
@@ -36,7 +41,11 @@ namespace SmartLamp {
     export function setEffect(effect: LampEffect) {
         currenteffect = effect
     }
-    
+    //% block
+    export function setPixel(PixNumber: number, Col:NeoPixelColors) {
+        strip.setPixelColor(PixNumber, Col)
+    }
+
     //% block
     export function testlamp() {
         strip.clear()
@@ -52,7 +61,7 @@ namespace SmartLamp {
         basic.showString("lamptest")
     }
     //% block
-    export function rainbow(){
+    export function rainbow() {
         strip.showRainbow()
         strip.show()
     }

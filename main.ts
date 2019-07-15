@@ -19,7 +19,9 @@ enum RepeatMode {
     repeatInLoop
 }
 
-//% color=190 weight=100 icon="\uf0eb" block="Smart Lamp"
+
+//% color=190 weight=100 icon="\uf192" block="Smart Lamp"
+
 namespace SmartLamp {
     //% block
     export function setTimer(time: number, effect: LampEffect, mode: RepeatMode) {

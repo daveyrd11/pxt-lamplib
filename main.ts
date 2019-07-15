@@ -21,7 +21,7 @@ enum RepeatMode {
 
 namespace SmartLamp {
     //% block
-    export function setTimer(time: number,mode: RepeatMode){
+    export function setTimer(time: number,effect: LampEffect,mode: RepeatMode){
 
     }
     //% block

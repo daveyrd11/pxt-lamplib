@@ -7,4 +7,11 @@ namespace SmartLamp {
 
         basic.showString("lamptest")
     }
+    //% block
+    export function AllOn() {
+        for (let index = 0; index <= 11; index++) {
+            strip.setPixelColor(index, neopixel.colors(NeoPixelColors.White))
+        }
+    }
+    let strip: neopixel.Strip = null
 } 

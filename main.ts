@@ -9,6 +9,10 @@ namespace SmartLamp {
         //% block="Fade"
         Fade,
     }
+    //% block
+    export function setEffect(effect: LampEffect) {
+        
+    }
     //% block 
     export function initialise() {
 

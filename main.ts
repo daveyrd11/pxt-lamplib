@@ -34,7 +34,10 @@ namespace SmartLamp {
             strip.rotate(-1)
         }
         if (currenteffect == LampEffect.Fade) {
-            strip.setBrightness(strip.brightness-10)
+            strip.setBrightness(strip.brightness - 10)
+        }
+        if (currenteffect == LampEffect.Random) {
+            strip.rotate(Math.randomRange(0, 12))
         }
         strip.show()
     }

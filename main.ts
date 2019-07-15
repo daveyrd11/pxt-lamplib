@@ -1,7 +1,17 @@
 namespace SmartLamp {
+    enum LampEffect {
+        //% block="Static"
+        Static,
+        //% block="Rotate"
+        Rotate,
+        //% block="Random"
+        Random,
+        //% block="Fade"
+        Fade,
+    }
     //% block 
     export function initialise() {
-        strip = neopixel.create(DigitalPin.P0, 12, NeoPixelMode.RGB)
+
     }
     //% block
     export function testlamp() {
@@ -15,4 +25,5 @@ namespace SmartLamp {
         }
     }
     let strip: neopixel.Strip = null
+    strip = neopixel.create(DigitalPin.P0, 12, NeoPixelMode.RGB)
 } 

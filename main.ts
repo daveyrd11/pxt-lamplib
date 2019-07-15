@@ -30,8 +30,18 @@ namespace SmartLamp {
         if (currenteffect==LampEffect.RotateCW){
             strip.rotate(1)
         }
+        if (currenteffect == LampEffect.RotateACW) {
+            strip.rotate(-1)
+        }
         strip.show()
     }
+    //% block 
+    export function setPixel(pxNumber: number, pxCol: NeoPixelColors){
+        strip.setPixelColor(pxNumber, pxCol)
+        strip.show()
+    }
+
+
     //% block
     export function setEffect(effect: LampEffect) {
         currenteffect = effect

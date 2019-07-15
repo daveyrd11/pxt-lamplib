@@ -33,8 +33,12 @@ namespace SmartLamp {
         if (currenteffect == LampEffect.RotateACW) {
             strip.rotate(-1)
         }
+        if (currenteffect == LampEffect.Fade) {
+            strip.setBrightness(strip.brightness-10)
+        }
         strip.show()
     }
+
     //% block 
     export function setPixel(pxNumber: number, pxCol: NeoPixelColors){
         strip.setPixelColor(pxNumber, pxCol)

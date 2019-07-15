@@ -12,8 +12,18 @@ enum LampEffect {
     Fade,
 }
 
-namespace SmartLamp {
+enum RepeatMode {
+    //% block="Dont Repeat"
+    dont,
+    //% block="Repeat"
+    repeatInLoop
+}
 
+namespace SmartLamp {
+    //% block
+    export function setTimer(time: number,mode: RepeatMode){
+
+    }
     //% block
     export function update(){
         if (currenteffect==LampEffect.RotateCW){
@@ -25,10 +35,7 @@ namespace SmartLamp {
     export function setEffect(effect: LampEffect) {
         currenteffect = effect
     }
-    //% block 
-    export function initialise() {
-
-    }
+    
     //% block
     export function testlamp() {
         strip.clear()

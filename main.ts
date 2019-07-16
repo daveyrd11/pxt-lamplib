@@ -10,6 +10,8 @@ enum LampEffect {
     Random,
     //% block="Fade"
     Fade,
+    //% block="Off"
+    Off,
 }
 
 enum RepeatMode {
@@ -22,12 +24,30 @@ enum RepeatMode {
 //% color=190 weight=100 icon="\uf192" block="Smart Lamp"
 namespace SmartLamp {
     //% block
-    export function setTimer(time: number,effect: LampEffect,mode: RepeatMode){
-
+    export function setTimer(time: number, effect: LampEffect, mode: RepeatMode) {
+        timerTime = time
+        timerExp = input.runningTime()
+        timerExp = timerExp + (timerTime * 1000)
+        timerEff = effect
+        timerMode = mode
     }
     //% block
-    export function update(){
-        if (currenteffect==LampEffect.RotateCW){
+    export function update() {
+        if (timerTime>0){
+            if (input.runningTime()>timerExp){
+                let tmpEff: LampEffect = currenteffect
+                currenteffect = timerEff
+                timerEff = tmpEff
+                if (timerMode == RepeatMode.repeatInLoop){
+                    timerExp = input.runningTime()
+                    timerExp = timerExp + (timerTime * 1000)
+                }
+                else{
+                    timerTime=0
+                }
+            }
+        }
+        if (currenteffect == LampEffect.RotateCW) {
             strip.rotate(1)
         }
         if (currenteffect == LampEffect.RotateACW) {
@@ -43,7 +63,7 @@ namespace SmartLamp {
     }
 
     //% block 
-    export function setPixel(pxNumber: number, pxCol: NeoPixelColors){
+    export function setPixel(pxNumber: number, pxCol: NeoPixelColors) {
         strip.setPixelColor(pxNumber, pxCol)
         strip.show()
     }
@@ -53,7 +73,7 @@ namespace SmartLamp {
     export function setEffect(effect: LampEffect) {
         currenteffect = effect
     }
-    
+
     //% block
     export function testlamp() {
         strip.clear()
@@ -69,7 +89,7 @@ namespace SmartLamp {
         basic.showString("lamptest")
     }
     //% block
-    export function rainbow(){
+    export function rainbow() {
         strip.showRainbow()
         strip.show()
     }
@@ -81,4 +101,8 @@ namespace SmartLamp {
     let currenteffect: LampEffect = LampEffect.Static
     let strip: neopixel.Strip = null
     strip = neopixel.create(DigitalPin.P0, 12, NeoPixelMode.RGB)
+    let timerTime = 0
+    let timerExp = 0
+    let timerEff: LampEffect = LampEffect.Off
+    let timerMode: RepeatMode = RepeatMode.dont
 } 

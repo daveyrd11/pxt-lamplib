@@ -101,6 +101,11 @@ namespace SmartLamp {
         strip.showColor(col)
         strip.show()
     }
+    //% block
+    export function allOff() {
+        strip.clear()
+        strip.show()
+    }
     let currenteffect: LampEffect = LampEffect.Static
     let strip: neopixel.Strip = null
     strip = neopixel.create(DigitalPin.P0, 12, NeoPixelMode.RGB)

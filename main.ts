@@ -59,6 +59,9 @@ namespace SmartLamp {
         if (currenteffect == LampEffect.Random) {
             strip.rotate(Math.randomRange(0, 12))
         }
+        if (currenteffect == LampEffect.Off) {
+            strip.clear()
+        }
         strip.show()
     }
 

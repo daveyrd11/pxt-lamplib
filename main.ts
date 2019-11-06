@@ -1,4 +1,3 @@
-
 enum LampEffect {
     //% block="Static"
     Static,
@@ -13,14 +12,12 @@ enum LampEffect {
     //% block="Off"
     Off,
 }
-
 enum RepeatMode {
     //% block="Dont Repeat"
     dont,
     //% block="Repeat"
     repeatInLoop
 }
-
 //% color=190 weight=100 icon="\uf192" block="Smart Lamp"
 namespace SmartLamp {
     //% block
@@ -33,17 +30,17 @@ namespace SmartLamp {
     }
     //% block
     export function update() {
-        if (timerTime>0){
-            if (input.runningTime()>timerExp){
+        if (timerTime > 0) {
+            if (input.runningTime() > timerExp) {
                 let tmpEff: LampEffect = currenteffect
                 currenteffect = timerEff
                 timerEff = tmpEff
-                if (timerMode == RepeatMode.repeatInLoop){
+                if (timerMode == RepeatMode.repeatInLoop) {
                     timerExp = input.runningTime()
                     timerExp = timerExp + (timerTime * 1000)
                 }
-                else{
-                    timerTime=0
+                else {
+                    timerTime = 0
                 }
             }
         }
@@ -64,19 +61,15 @@ namespace SmartLamp {
         }
         strip.show()
     }
-
     //% block 
     export function setPixel(pxNumber: number, pxCol: NeoPixelColors) {
         strip.setPixelColor(pxNumber, pxCol)
         strip.show()
     }
-
-
     //% block
     export function setEffect(effect: LampEffect) {
         currenteffect = effect
     }
-
     //% block
     export function testlamp() {
         strip.clear()

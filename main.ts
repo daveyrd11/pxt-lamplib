@@ -7,10 +7,8 @@ enum LampEffect {
     RotateACW,
     //% block="Random"
     Random,
-    //% block="Fade"
-    Fade,
     //% block="Off"
-    Off,
+    Off
 }
 enum RepeatMode {
     //% block="Dont Repeat"
@@ -49,9 +47,6 @@ namespace SmartLamp {
         }
         if (currenteffect == LampEffect.RotateACW) {
             strip.rotate(-1)
-        }
-        if (currenteffect == LampEffect.Fade) {
-            strip.setBrightness(strip.brightness - 10)
         }
         if (currenteffect == LampEffect.Random) {
             strip.rotate(Math.randomRange(0, 12))

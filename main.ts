@@ -61,6 +61,12 @@ namespace SmartLamp {
         strip.setPixelColor(pxNumber, pxCol)
         strip.show()
     }
+    //% block 
+    export function setPixelRGB(pxNumber: number, red:number,green:number,blue:number) {
+        let colToSet = red + (256*green)+(65536*blue)
+        strip.setPixelColor(pxNumber, colToSet)
+        strip.show()
+    }
     //% block
     export function setEffect(effect: LampEffect) {
         currenteffect = effect

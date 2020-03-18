@@ -64,7 +64,7 @@ namespace SmartLamp {
 
     //% block="User Color Pixel Number = %pxNumber Red = $red green = $green blue = $blue"
     export function setPixelRGB(pxNumber: number, red: number, green: number, blue: number) {
-        let colToSet = red + (256 * green) + (65536 * blue)
+        let colToSet = blue + (256 * green) + (65536 * red)
         strip.setPixelColor(pxNumber, colToSet)
         strip.show()
     }
